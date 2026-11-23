@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance Marker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Attendance Marker</h1>
+    <p class="subtitle">Upload the student list from admin. The page finds the roll numbers and names for you.</p>
+
+    <section class="card">
+      <h2>Step A: Choose the student list</h2>
+      <p class="hint">Word (.docx), PDF, Excel (.xlsx), CSV or text file</p>
+      <input type="file" id="studentFile" accept=".docx,.pdf,.xlsx,.xls,.csv,.txt">
+      <p id="readMessage"></p>
+    </section>
+
+    <section class="card">
+      <h2>Step B: Check the course details</h2>
+      <p class="hint">Found in your file. Fix anything that is wrong or empty.</p>
+      <div class="fields">
+        <label>Course code
+          <input type="text" id="courseCode" placeholder="GE-201">
+        </label>
+        <label>Course name
+          <input type="text" id="courseName" placeholder="Islamic Studies">
+        </label>
+        <label>Section
+          <input type="text" id="courseSection" placeholder="BA">
+        </label>
+        <label>Semester
+          <input type="text" id="courseSemester" placeholder="F26">
+        </label>
+        <label class="wide">Instructor
+          <input type="text" id="courseInstructor" placeholder="Teacher name">
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Step C: Check the students</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Roll No</th><th>Name</th></tr>
+          </thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Step D: Save</h2>
+      <button id="saveBtn">Save course and students</button>
+      <p id="message"></p>
+    </section>
+  </main>
+
+  <!-- Helpers that read different file types and talk to Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+
+  <!-- Our own files: the smart reader first, then the page logic -->
+  <script src="parser.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
