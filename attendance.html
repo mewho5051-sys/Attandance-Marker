@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mark Attendance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <nav class="nav">
+      <a href="index.html">Upload list</a>
+      <a href="attendance.html" aria-current="page">Mark attendance</a>
+    </nav>
+
+    <h1>Mark Attendance</h1>
+    <p class="subtitle">Pick a course, make a session for today's lecture, then mark each student.</p>
+
+    <section class="card">
+      <h2>Step 1: Choose the course</h2>
+      <select id="courseSelect">
+        <option value="">Loading courses...</option>
+      </select>
+    </section>
+
+    <section class="card">
+      <h2>Step 2: Make or choose a session</h2>
+      <p class="hint">A session is one lecture on one day. Set the date and your lecture time from the timetable.</p>
+
+      <div class="fields three">
+        <label>Date
+          <input type="date" id="sessionDate">
+        </label>
+        <label>Start time
+          <input type="time" id="startTime">
+        </label>
+        <label>End time
+          <input type="time" id="endTime">
+        </label>
+      </div>
+      <button id="createBtn">Create session</button>
+      <p id="sessionMessage"></p>
+
+      <label class="block">Or choose a session you made before
+        <select id="sessionSelect">
+          <option value="">-- choose a session --</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="card" id="markSection" hidden>
+      <h2>Step 3: Mark the students</h2>
+      <div class="actions">
+        <button class="secondary" id="allPresentBtn">Mark all present</button>
+        <button class="secondary" id="allAbsentBtn">Mark all absent</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Roll No</th><th>Name</th><th>Attendance</th></tr>
+          </thead>
+          <tbody id="attendanceBody"></tbody>
+        </table>
+      </div>
+      <p id="summary"></p>
+      <button id="saveBtn">Save attendance</button>
+      <p id="message"></p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="attendance.js"></script>
+</body>
+</html>

@@ -145,3 +145,115 @@ input[type="text"] {
     grid-template-columns: 1fr;
   }
 }
+
+/* Menu links at the top */
+[hidden] {
+  display: none !important;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.nav a {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav a[aria-current="page"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.nav a:focus-visible {
+  outline: 3px solid #f0b429;
+  outline-offset: 2px;
+}
+
+/* Dropdowns, date and time boxes */
+select,
+input[type="date"],
+input[type="time"] {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--text);
+  background: #ffffff;
+  max-width: 100%;
+}
+
+select:focus-visible,
+input[type="date"]:focus-visible,
+input[type="time"]:focus-visible {
+  outline: 3px solid #f0b429;
+  outline-offset: 2px;
+}
+
+#courseSelect {
+  width: 100%;
+}
+
+.fields.three {
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 12px;
+}
+
+label.block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+#sessionMessage,
+#summary,
+#message {
+  margin: 12px 0 0;
+  font-weight: 600;
+}
+
+/* Marking table */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+button.secondary {
+  background: #ffffff;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+button.secondary:hover {
+  background: #e8f1f2;
+}
+
+.choice {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 2px 4px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.choice:has(input:checked) {
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .fields.three {
+    grid-template-columns: 1fr;
+  }
+}
